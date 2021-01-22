@@ -6,4 +6,12 @@ def check_brackets(brackets_row: str) -> bool:
     :return: True if valid, False otherwise
     """
 
-    return False
+    sequence = []
+    brackets = {"(": ")"}
+
+    for i in brackets_row:
+        if i in brackets:
+            sequence.append(brackets[i])
+        elif not sequence or i != sequence.pop():
+            return False
+    return not sequence
