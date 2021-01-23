@@ -16,6 +16,8 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     while low <= high:
         mid = int((low + high) / 2)
         if arr[mid] == elem:
+            while mid > 0 and arr[mid - 1] == elem:
+                mid -= 1
             return mid
         elif arr[mid] > elem:
             high = mid - 1
